@@ -1,0 +1,50 @@
+﻿<Window x:Class="EcoRegion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EcoRegion"
+        mc:Ignorable="d"
+        Title="Расходы регионов РФ на экологию" Height="1000" Width="1600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox x:Name="cbRegions" HorizontalAlignment="Left" Margin="53,0,0,0" VerticalAlignment="Center" Width="549" Height="64" FontFamily="Arial" FontSize="22" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbRegions_SelectionChanged"/>
+        <ComboBox x:Name="cbYear" HorizontalAlignment="Left" VerticalAlignment="Center" Width="258" Height="64" FontSize="22" FontFamily="Yu Gothic" Grid.Row="1" RenderTransformOrigin="1.396,0.336" Margin="634,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="cbYear_SelectionChanged"/>
+        <Button x:Name="btShowAllRegions" Content="Показать все регионы" HorizontalAlignment="Left" Margin="216,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="64" Width="386" FontSize="36" FontFamily="Arial" BorderBrush="#00000000" Foreground="#FFFFDD3E" RenderTransformOrigin="0.253,0.618" Click="btShowAllRegions_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/кнопка — копия.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btDiagramm" Content="Диаграмма" HorizontalAlignment="Left" Margin="634,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="64" Width="280" FontSize="36" FontFamily="Arial" BorderBrush="#00000000" Foreground="#FF6DE8FF" RenderTransformOrigin="0.253,0.618" Click="btDiagramm_Click">
+            <Button.Background>
+
+                <ImageBrush ImageSource="/кнопка3.png" Stretch="UniformToFill"/>
+
+
+            </Button.Background>
+
+        </Button>
+        <DataGrid x:Name="Egypt" AutoGenerateColumns="False" Grid.Row="2" FontSize="18" Margin="0,82,0,0" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="№" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Region}" Header="Регион" Width="5*"/>
+                <DataGridTextColumn Binding="{Binding ActualExpense}" Header="Текущие затраты" Width="5*"/>
+                <DataGridTextColumn Binding="{Binding InvCap}" Header="Инвестиционные капиталы" Width="5*"/>
+                <DataGridTextColumn Binding="{Binding ExpCapRemont}" Header="На природоохранный ремонт" Width="5*"/>
+                <DataGridTextColumn Binding="{Binding SumOfNatExp}" Header="Суммарные расходы" Width="5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Выберите регион и год, отчетность за который хотите увидеть" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" FontSize="26" Width="1401" Margin="53,0,0,0"/>
+        <Label x:Name="lblOut" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontSize="26" Width="1420" Grid.Row="4"/>
+        <Label x:Name="lblOut2" Content="Выберите регион и год, отчетность за который хотите увидеть" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Arial" FontSize="26" Width="1420" Grid.Row="5" Margin="0,20,0,0"/>
+    </Grid>
+</Window>
